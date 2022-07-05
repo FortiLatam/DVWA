@@ -11,6 +11,7 @@ spec:
       containers:
       - name: dvwa
         image: 371571523880.dkr.ecr.us-east-1.amazonaws.com/dvwa:latest
+        imagePullPolicy: "Always"
   selector:
     matchLabels:
       app: dvwa
