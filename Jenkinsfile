@@ -33,7 +33,7 @@ pipeline {
         stage('Push') {
             steps {
                 script{
-                        docker.withRegistry('https://371571523880.dkr.ecr.us-east-1.amazonaws.com/juice-shop', 'ecr:us-east-1:aws-credentials') {
+                        docker.withRegistry('https://371571523880.dkr.ecr.us-east-1.amazonaws.com/dvwa', 'ecr:us-east-1:aws-credentials') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                     }
