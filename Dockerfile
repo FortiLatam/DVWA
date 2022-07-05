@@ -31,4 +31,4 @@ RUN service mysql start && \
 
 EXPOSE 80
 
-
+ENTRYPOINT ["tail", "-f", "/dev/null"]
