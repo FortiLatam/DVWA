@@ -18,7 +18,7 @@ pipeline {
                  app = docker.build("dvwa")
                 }
             }
-        }
+        }/*
         stage('CWP Scan'){
             steps {
                  fortiCWPScanner imageName: 'dvwa:latest', block: true
@@ -29,7 +29,7 @@ pipeline {
                  sh 'docker pull registry.fortidevsec.forticloud.com/fdevsec_sast:latest'
                  sh 'docker run --rm --mount type=bind,source="$PWD",target=/scan registry.fortidevsec.forticloud.com/fdevsec_sast:latest'
             }
-        }
+        }*/
         stage('Push') {
             steps {
                 script{
@@ -43,6 +43,7 @@ pipeline {
         stage('Deploy'){
             steps {
                  sh 'kubectl apply -f deployment.yml'
+                 /*sh 'kubectl set image deployments/dvwa 371571523880.dkr.ecr.us-east-1.amazonaws.com/dvwa:${BUILD_NUMBER}'*/
             }
         } 
 /*        stage('DAST'){
