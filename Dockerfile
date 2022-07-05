@@ -31,5 +31,4 @@ RUN service mysql start && \
 
 EXPOSE 80
 
-COPY main.sh /
-ENTRYPOINT ["/main.sh"]
+
