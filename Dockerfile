@@ -14,12 +14,15 @@ COPY php.ini /etc/php/7.3/apache2/php.ini
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
-    
-EXPOSE 80
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN service mysql start && \
     sleep 3 && \
     mysql -uroot -pp4ssw0rd -e "CREATE USER dvwa@localhost IDENTIFIED BY 'p4ssw0rd';CREATE DATABASE dvwa;GRANT ALL privileges ON dvwa.* TO 'dvwa'@localhost;"
 
-RUN service apache2 start
+EXPOSE 80
+
+COPY main.sh /
+
+RUN chmod a+x /main.sh
+
+ENTRYPOINT ["/main.sh"]
