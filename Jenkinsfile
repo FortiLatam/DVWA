@@ -18,7 +18,7 @@ pipeline {
                  app = docker.build("dvwa")
                 }
             }
-        }/*
+        }
         stage('CWP Scan'){
             steps {
                  fortiCWPScanner imageName: 'dvwa:latest', block: true
@@ -29,7 +29,7 @@ pipeline {
                  sh 'docker pull registry.fortidevsec.forticloud.com/fdevsec_sast:latest'
                  sh 'docker run --rm --mount type=bind,source="$PWD",target=/scan registry.fortidevsec.forticloud.com/fdevsec_sast:latest'
             }
-        }*/
+        }
         stage('Push') {
             steps {
                 script{
