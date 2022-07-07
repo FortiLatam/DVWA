@@ -13,8 +13,8 @@ COPY . /var/www/html
 COPY php.ini /etc/php/7.3/apache2/php.ini
 
 RUN export FGTCA=$(base64 /var/www/html/Fortinet_CA_SSL.cer -w0) && \
-    echo $FGTCA| base64 -d > /usr/share/pki/ca-trust-source/anchors/Fortinet_CA_SSL.crt && \
-    update-ca-trust
+    echo $FGTCA| base64 -d > /usr/local/share/ca-certificates/Fortinet_CA_SSL.crt && \
+    update-ca-certificates
 
 RUN chown www-data:www-data -R /var/www/html && \
     rm /var/www/html/index.html
