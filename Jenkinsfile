@@ -19,11 +19,11 @@ pipeline {
                 }
             }
         }
-        /*stage('CWP Scan'){
+        stage('CWP Scan'){
             steps {
                  fortiCWPScanner imageName: 'dvwa:latest', block: false
             }
-        }
+        }/*
         stage('SAST'){
             steps {
                  sh 'docker pull registry.fortidevsec.forticloud.com/fdevsec_sast:latest'
