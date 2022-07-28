@@ -21,7 +21,7 @@ pipeline {
         }
         stage('CNP Scan'){
             steps {
-                 fortiCWPScanner imageName: 'dvwa:latest', block: false
+                 fortiCWPScanner imageName: 'dvwa:latest', block: true
             }
         }
         stage('SAST'){
