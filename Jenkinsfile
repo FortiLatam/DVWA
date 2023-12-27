@@ -28,13 +28,13 @@ pipeline {
         }  
   
     // Building Docker images
-    stage('Building image') {
+    /*stage('Building image') {
       steps{
         script {
           dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}-${env.BUILD_NUMBER}"
         }
       }
-    }
+    }*/
    
     // Uploading Docker images into AWS ECR
     /*stage('Pushing to ECR') {
