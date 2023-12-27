@@ -3,8 +3,8 @@ id:
   app: 4abe493a-d1a8-4ad5-b9bc-25e6c5b8b622
 
 # If below settings are not configured, scans will be performed for all supported scanners.
-#scanners:
-#  - sast
+scanners:
+  - sast
 #  - sca
 #  - secret
 #  - iac
