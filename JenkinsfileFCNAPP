@@ -58,7 +58,7 @@ pipeline {
                  sh 'echo "LW_ACCOUNT=AcmeCorporation" > env.list echo "LW_API_KEY=${LW_API_KEY}" >> env.list'
                  sh 'echo "LW_API_SECRET=${LW_API_SECRET}" >> env.list echo "WORKSPACE=src" >> env.list'
                  // Provide Jenkins build details
-                 sh 'env | grep "^BRANCH_\|^CHANGE_\|^TAG_\|^BUILD_\|^JOB_\|^JENKINS_\|^GIT_" >> env.list'
+                 sh 'env | grep "^BRANCH_\\|^CHANGE_\\|^TAG_\\|^BUILD_\\|^JOB_\\|^JENKINS_\\|^GIT_" >> env.list'
             }
         }
       /*stage('Deploy'){
