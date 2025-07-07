@@ -59,6 +59,7 @@ pipeline {
                  sh 'echo "LW_API_SECRET=${LW_API_SECRET}" >> env.list echo "WORKSPACE=src" >> env.list'
                  // Provide Jenkins build details
                  sh 'env | grep "^BRANCH_\\|^CHANGE_\\|^TAG_\\|^BUILD_\\|^JOB_\\|^JENKINS_\\|^GIT_" >> env.list'
+                 sh 'docker run --env-file env.list -v "$(pwd):/app/src" lacework/codesec:stable lacework iac scan --directory=.'
             }
         }
       /*stage('Deploy'){
